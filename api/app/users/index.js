@@ -23,7 +23,7 @@ export const create = async (ctx) => {
             name: user.name,
             expiresIn: "7d"
         }, process.env.JWT_SECRET)
-        
+
         ctx.body = { 
             user,
             accessToken
@@ -37,8 +37,7 @@ export const create = async (ctx) => {
 
 export const login = async ctx => {
     const [type, token] = ctx.headers.authorization.split(" ");
-    console.log(token);
-    
+   
     const [email, plainTextPassword] = atob(token).split(":");
 
     const user = await prisma.user.findUnique({
@@ -46,20 +45,15 @@ export const login = async ctx => {
     })
 
     if (!user) {
-        console.log('user', user);
         ctx.status = 404;
         return;
     }
-
-    console.log('user', user);
-    console.log('plainTextPassword', plainTextPassword);
 
     const passwordMatch = await bcrypt.compare(plainTextPassword, user.password)
 
     delete user.password;
 
     if (!passwordMatch) {
-        console.log('passwordMatch', passwordMatch);
         ctx.status = 404;
         return;
     }
