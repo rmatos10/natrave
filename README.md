@@ -1,8 +1,4 @@
-<table>
-  <tr>
-    <td><img src="https://github.com/rmatos10/natrave/blob/master/web/public/img/logo-fundo-branco.svg" /></td>
-  </tr>
-</table>
+<img src="https://raw.githubusercontent.com/rmatos10/natrave/master/web/public/img/logo-fundo-branco.svg" width="500" height="280" alt="NaTrave">
 
 # NaTrave
 Projeto de aplicação web desenvolvido no evento Full Stack Challenge da Codar.me
@@ -10,8 +6,8 @@ Projeto de aplicação web desenvolvido no evento Full Stack Challenge da Codar.
 ## Conteúdo
 * [Sobre a aplicação](#sobre-a-aplicação)
 * [Tecnologias](#hammer_and_wrench-tecnologias)
-* [Iniciando a Aplicação](#car-Iniciando-a-aplicação)
-* [Screenshots](#camera_flash-screenshots)
+* [Iniciando a Aplicação](#car-iniciando-a-aplicação)
+* [Pré-visualização](#camera_flash-pré-visualização)
 * [Licença](#balance_scale-licença)
 * [Contato](#email-contato)
 
@@ -20,9 +16,9 @@ Projeto de aplicação desenvolvida durante o evento __Full Stack Challenge__, e
 Foram 5 dias de aula, totalizando um pouco mais de 11 horas de vídeo, desenvolvendo uma API em Node e um Front-end em React.<br />
 A aplicação possui uma tela de logins, cadastro de usuário, dashboard e tela de perfil.
 Ao entrar no sistema exibe os jogos da Copa do Mundo 2022 realizados no dia informado.<br/>
-É possível filtrar os jogos por data. Além disso, permite realizar palpites sobre os resultados dos jogos.<br/>
+É possível acompanhar e filtrar os jogos por data. Além disso, permite realizar palpites sobre os resultados dos jogos.<br/>
 Todos os palpites são armazenados na nuvem, em um banco de dados do [PlanetScale](https://planetscale.com).<br />
-Foram feitas algumas melhorias no Front-end, como por exemplo, adicionado notificações de erro utilizando o plugin __React-Toastify__.<br />
+Com isso, foram feitas algumas melhorias no Front-end, como por exemplo, adicionado notificações de erro utilizando o plugin __React-Toastify__. Realizado uma melhoria nas requisições feitas pelo __Axios__ e tratamento de erros com novas validações.<br />
 Ao final da última aula, foi explicado como fazer o deploy para a produção na __Vercel__. A aplicação está disponível [aqui](https://natrave-rmatos.vercel.app/).<br />
 
 
@@ -43,7 +39,7 @@ Ao final da última aula, foi explicado como fazer o deploy para a produção na
 
 ## :car: Iniciando a aplicação
 Baixe o repositório com git clone e entre na pasta do projeto.<br/>
-Renomeie os arquivos _.env.example_ para _.env_ e informe as URLs e o JWT secret.<br/>
+Renomeie os arquivos _.env.example_ para _.env_ e informe as URLs e o JWT secret. É necessário ter um login no __PlanetScale__ para configurar as credenciais no arquivo _.env_ do código.<br/>
 ```bash
 $ git clone https://github.com/rmatos10/natrave
 ```
