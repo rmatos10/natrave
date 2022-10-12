@@ -5,9 +5,8 @@ const prisma = new PrismaClient();
 
 export const create = async (ctx) => {
 
-    console.log(ctx.headers);
-
     if(!ctx.headers.authorization) {
+        ctx.body = 'Não foi possível enviar as informações';
         ctx.status = 401;
         return;
     }
@@ -54,9 +53,10 @@ export const create = async (ctx) => {
                 })
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
             ctx.body = error
-            ctx.status = 500
+            ctx.status = 500;
+            return;
         }
     } catch (error) {
         ctx.status = 401;

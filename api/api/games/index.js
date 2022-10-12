@@ -18,11 +18,12 @@ export const list = async (ctx) => {
             where
         })
         ctx.body = games
-        ctx.status = 200
+        ctx.status = 200;
     } catch (error) {
-        console.log(error);
+        console.error(error);
         ctx.body = error
-        ctx.status = 500
+        ctx.status = 500;
+        return;
     }
    
 }

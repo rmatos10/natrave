@@ -1,9 +1,10 @@
 import axios from 'axios'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
+import { toast } from 'react-toastify';
 import { useLocalStorage } from 'react-use'
 import { Icon, Input } from '~/components' 
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 const validationSchema = yup.object().shape({
     email: yup.string().email('Informe um e-mail válido').required('Preencha seu e-mail'),
@@ -11,20 +12,27 @@ const validationSchema = yup.object().shape({
 })
 
 export const Login = () => {
+    const navigate = useNavigate();
     const [auth, setAuth] = useLocalStorage('auth', {})
     const formik = useFormik({
         onSubmit: async (values) => {
-            const res = await axios({
-                method: 'GET',
-                baseURL: import.meta.env.VITE_API_URL,
-                url: '/login',
+            return await axios.post(import.meta.env.VITE_API_URL + '/login', {}, {
                 auth: {
                     username: values.email,
                     password: values.password
                 }
             })
-
-            setAuth(res.data);
+            .then((res) => {
+                setAuth(res.data);
+                navigate('/dashboard');
+            })
+            .catch((error) => {
+                console.log(formik.isSubmitting);
+                formik.isSubmitting = false;
+                console.error(error);
+                toast.error(error?.response?.data);
+                return [];
+            });
         },
         initialValues: {
             email: '',

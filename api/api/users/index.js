@@ -32,20 +32,23 @@ export const create = async (ctx) => {
     } catch (error) {
         ctx.body = error;
         ctx.status = 500;
+        return;
     }
 }
 
 export const login = async ctx => {
+
     const [type, token] = ctx.headers.authorization.split(" ");
    
     const [email, plainTextPassword] = atob(token).split(":");
 
     const user = await prisma.user.findUnique({
-        where: { email}
+        where: { email }
     })
 
     if (!user) {
-        ctx.status = 404;
+        ctx.body = 'Usuário não encontrado';
+        ctx.status = 500;
         return;
     }
 
@@ -54,7 +57,8 @@ export const login = async ctx => {
     delete user.password;
 
     if (!passwordMatch) {
-        ctx.status = 404;
+        ctx.body = 'Senha inválida';
+        ctx.status = 500;
         return;
     }
 
@@ -71,12 +75,14 @@ export const login = async ctx => {
 }
 
 export const hunches = async ctx => {
+    
     const username = ctx.request.params.username;
     const user = await prisma.user.findUnique({
         where: { username }
     })
 
     if(!user) {
+        ctx.body = 'Usuário não encontrado';
         ctx.status = 404;
         return;
     }

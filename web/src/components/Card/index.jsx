@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { useLocalStorage } from 'react-use'
+import { toast } from 'react-toastify';
 
 const validationSchema = yup.object().shape({
     homeTeamScore: yup.string().required(),
@@ -12,18 +13,22 @@ export const Card = ({ disabled, gameId, homeTeam, awayTeam, homeTeamScore, away
     const [auth] = useLocalStorage('auth')
     const formik = useFormik({
         onSubmit: (values) => {
-            axios({
-                method: 'POST',
-                baseURL: import.meta.env.VITE_API_URL,
-                url: '/hunches',
-                headers: {
-                    authorization: `Bearer ${auth.accessToken}`
-                },
-                data: {
-                    ...values,
-                    gameId
+            axios.post(import.meta.env.VITE_API_URL + '/hunches', { ...values, gameId },
+                { 
+                    headers: {
+                        authorization: `Bearer ${auth.accessToken}`
+                    },
                 }
+            )
+            .then((res) => {
+                toast.success('Palpite realizado com sucesso!');
+                return true;
             })
+            .catch((error) => {
+                console.error(error);
+                toast.error('Não foi possível salvar o palpite');
+                return;
+            });
         },
         initialValues: {
             homeTeamScore,
@@ -53,6 +58,7 @@ export const Card = ({ disabled, gameId, homeTeam, awayTeam, homeTeamScore, away
                     name="awayTeamScore"
                     value={formik.values.awayTeamScore}
                     onChange={formik.handleChange}
+                    onBlur={formik.handleSubmit}
                     disabled={disabled}
                 />
                 <img src={`/img/bandeiras/${awayTeam}.png`} />

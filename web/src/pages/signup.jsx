@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { useFormik } from 'formik'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import { useLocalStorage } from 'react-use'
+import { toast } from 'react-toastify';
 import * as yup from 'yup'
 
 import { Icon, Input } from '../components' 
@@ -14,19 +15,20 @@ const validationSchema = yup.object().shape({
 })
 
 export const Signup = () => {
+    const navigate = useNavigate();
     const [auth, setAuth] = useLocalStorage('auth', {});
     const formik = useFormik({
         onSubmit: async (values) => {
-            try {
-                const res = await axios.post(`${import.meta.env.VITE_API_URL}/users`, values);
-                setAuth(res.data);
-                toast.success('Usuário cadastrado com sucesso!');
-                navigate('/dashboard');
-            } catch (err) {
-                console.warn(err.message);
-                toast.error('Não foi possível salvar o usuário!');
-                return;
-            }
+            return await axios.post(import.meta.env.VITE_API_URL + '/users', values)
+                .then((res) => {
+                    setAuth(res.data);
+                    navigate('/dashboard');
+                })
+                .catch((error) => {
+                    console.error(error);
+                    toast.error('Não foi possível cadastrar o usuário!');
+                    return;
+                });
         },
         initialValues: {
             name: '',
