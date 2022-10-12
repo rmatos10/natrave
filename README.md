@@ -1,6 +1,6 @@
 <table>
   <tr>
-    <td><img src="https://github.com/rmatos10/natrave/blob/master/web/img/logo-fundo-branco.svg" /></td>
+    <td><img src="https://github.com/rmatos10/natrave/blob/master/web/public/img/logo-fundo-branco.svg" /></td>
   </tr>
 </table>
 
@@ -23,7 +23,7 @@ Ao entrar no sistema exibe os jogos da Copa do Mundo 2022 realizados no dia info
 É possível filtrar os jogos por data. Além disso, permite realizar palpites sobre os resultados dos jogos.<br/>
 Todos os palpites são armazenados na nuvem, em um banco de dados do [PlanetScale](https://planetscale.com).<br />
 Foram feitas algumas melhorias no Front-end, como por exemplo, adicionado notificações de erro utilizando o plugin __React-Toastify__.<br />
-Ao final da última aula, foi explicado como fazer o deploy para a produção na Vercel. A aplicação está disponível [aqui](https://error.vercel.app).<br />
+Ao final da última aula, foi explicado como fazer o deploy para a produção na __Vercel__. A aplicação está disponível [aqui](https://natrave-rmatos.vercel.app/).<br />
 
 
 ## :hammer_and_wrench: Tecnologias
