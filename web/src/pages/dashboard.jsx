@@ -28,8 +28,8 @@ export const Dashboard = () => {
             .then((res) => {
                 const hunches = res.data.hunches.reduce((acc, hunch) => {
                     acc[hunch.gameId] = {
-                        homeTeamScore: hunch.homeTeamScore,
-                        awayTeamScore: hunch.awayTeamScore
+                        homeTeamScore: hunch.homeTeamScore.toString(),
+                        awayTeamScore: hunch.awayTeamScore.toString()
                     }
                     return acc;
                 }, {})

@@ -30,9 +30,10 @@ export const Profile = () => {
             .then((res) => {
                 const hunches = res.data.hunches.reduce((acc, hunch) => {
                     acc[hunch.gameId] = {
-                        homeTeamScore: hunch.homeTeamScore,
-                        awayTeamScore: hunch.awayTeamScore
+                        homeTeamScore: hunch.homeTeamScore.toString(),
+                        awayTeamScore: hunch.awayTeamScore.toString()
                     }
+                    console.log(acc);
                     return acc;
                 }, {})
                 return hunches;
@@ -94,7 +95,7 @@ export const Profile = () => {
                                 gameId={game.id}
                                 homeTeam={game.homeTeam}
                                 awayTeam={ game.awayTeam}
-                                match={format(new Date(game.gameTime), 'H:mm')}
+                                gameTime={format(new Date(game.gameTime), 'H:mm')}
                                 homeTeamScore={hunches?.value?.[game.id]?.homeTeamScore || ''}
                                 awayTeamScore={hunches?.value?.[game.id]?.awayTeamScore || ''}
                                 disabled={true}
