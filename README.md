@@ -12,14 +12,13 @@ Projeto de aplicação web desenvolvido no evento Full Stack Challenge da Codar.
 * [Contato](#email-contato)
 
 ## Sobre a aplicação
-Projeto de aplicação desenvolvida durante o evento __Full Stack Challenge__, edição Copa 2022, promovido pela Codar.me.<br />
-Foram 5 dias de aula, totalizando um pouco mais de 11 horas de vídeo, desenvolvendo uma API em Node e um Front-end em React.<br />
-A aplicação possui uma tela de logins, cadastro de usuário, dashboard e tela de perfil.
-Ao entrar no sistema exibe os jogos da Copa do Mundo 2022 realizados no dia informado.<br/>
+Este projeto de aplicação foi desenvolvido durante o evento __Full Stack Challenge__, edição Copa 2022, promovido pela Codar.me.<br />
+Foram 5 dias de aula, totalizando um pouco mais de 10 horas de vídeo, desenvolvendo uma API em NodeJS e um Front-end em React.<br />
+A aplicação possui uma tela de login, cadastro de usuário, dashboard e tela de perfil. Ao entrar no sistema, o usuário logado visualiza os jogos da Copa do Mundo 2022, de acordo com o dia e horário informado.<br/>
 É possível acompanhar e filtrar os jogos por data. Além disso, permite realizar palpites sobre os resultados dos jogos.<br/>
-Todos os palpites são armazenados na nuvem, em um banco de dados do [PlanetScale](https://planetscale.com).<br />
-Com isso, foram feitas algumas melhorias no Front-end, como por exemplo, adicionado notificações de erro utilizando o plugin __React-Toastify__. Realizado uma melhoria nas requisições feitas pelo __Axios__ e tratamento de erros com novas validações.<br />
-Ao final da última aula, foi explicado como fazer o deploy para a produção na __Vercel__. A aplicação está disponível [aqui](https://natrave-rmatos.vercel.app/).<br />
+Todos os palpites são armazenados na nuvem, em um banco de dados chamado [PlanetScale](https://planetscale.com).<br />
+Novas melhorias foram realizadas no Front-end, como por exemplo, adicionado notificações de erro utilizando o plugin __React-Toastify__, adicionado um novo tratamento nas requisições feitas pelo __Axios__ com novas validações de usuário.<br />
+Ao final da última aula, foi explicado como fazer o deploy para a produção na __Vercel__ e realizar configurações de variáveis de ambiente. A aplicação está disponível [clicando aqui](https://natrave-rmatos.vercel.app/).<br />
 
 
 ## :hammer_and_wrench: Tecnologias
@@ -58,7 +57,14 @@ $ npm run dev
 ```
 
 ## :camera_flash: Pré-visualização
-![](link)
+<img src="https://raw.githubusercontent.com/rmatos10/natrave/master/web/public/img/screenshots/home.jpg" width="800" height="500" alt="NaTrave">
+<img src="https://raw.githubusercontent.com/rmatos10/natrave/master/web/public/img/screenshots/login.jpg" width="800" height="500" alt="NaTrave">
+<img src="https://raw.githubusercontent.com/rmatos10/natrave/master/web/public/img/screenshots/sign-up.jpg" width="800" height="600" alt="NaTrave">
+<img src="https://raw.githubusercontent.com/rmatos10/natrave/master/web/public/img/screenshots/dashboard.jpg" width="800" height="600" alt="NaTrave">
+<img src="https://raw.githubusercontent.com/rmatos10/natrave/master/web/public/img/screenshots/carregando.jpg" width="800" height="600" alt="NaTrave">
+<img src="https://raw.githubusercontent.com/rmatos10/natrave/master/web/public/img/screenshots/dashboard2.jpg" width="800" height="700" alt="NaTrave">
+<img src="https://raw.githubusercontent.com/rmatos10/natrave/master/web/public/img/screenshots/profile.jpg" width="800" height="700" alt="NaTrave">
+<img src="https://raw.githubusercontent.com/rmatos10/natrave/master/web/public/img/screenshots/nenhum-resultado.jpg" width="800" height="600" alt="NaTrave">
 
 ## :balance_scale: Licença
 Este projeto está licenciado sob a [licença MIT](LICENSE).
